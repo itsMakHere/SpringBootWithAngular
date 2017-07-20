@@ -1,0 +1,12 @@
+<div class="container">
+		<div class="jumbotron">
+		<div ng-if="showAlertForDelete" ng-class="messageClass">
+  				<h4>{{deleteMessage}}</h4>
+			</div>
+		  <div class="form-group">
+		    <label for="SrNo">Sr.No:</label>
+		    <input type="number" class="form-control" ng-model="customer.no" />
+		  </div>
+		  <button type="submit" class="btn btn-primary" ng-click="deleteCustomer(customer)">Delete</button>
+	</div>
+</div>

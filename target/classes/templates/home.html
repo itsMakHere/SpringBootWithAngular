@@ -1,0 +1,26 @@
+<div class="container" ng-init="getAllEmployees()">
+	<div class="jumbotron">
+	<div ng-if="employeesList">
+	<div class=" form-group ">
+	          	<input type="text" class="form-control" placeholder="Search" ng-required="true" ng-model="search" />
+	 </div>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Sr No.</td>
+				<td>Name</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employeesList | filter:search">
+				<td>{{employee.id}}</td>
+				<td>{{employee.name}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div ng-if="!employeesList">
+		<h3>No Customer Data Found</h3>
+	</div>
+	</div>
+</div>

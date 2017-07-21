@@ -17,12 +17,7 @@ public class CustomerController {
 	
 	@Autowired
 	CustomerService customerService;
-	
-	/*@RequestMapping("")
-	@ResponseBody
-	public String CustomerHello(){
-		return "Customer Hello";
-	}*/
+
 	@RequestMapping(value = "/index")
 	public ModelAndView addNewCustomer(){
 		return new ModelAndView("index");
@@ -75,15 +70,5 @@ public class CustomerController {
 		list.add("failure");
 		return list;
 	}
-	
-	/*@RequestMapping("/{name}")
-	public Customer getCustomerByName(@PathVariable String name) throws CustomerNotFound{
-		Customer customer = customerService.findByName(name);
-		if(customer != null){
-			return customer;
-		}
-		throw new CustomerNotFound("Customer Not Found Exception");
-	}*/
-	
 	
 }

@@ -26,7 +26,16 @@ myModule.config(function($routeProvider) {
 			});
 
 myModule.controller("indexController",function($scope,$http){
-	$scope.nameOfButton = "Search Customer"
+	$scope.nameOfButton = "Search Customer";
+	
+	$scope.validate = function(){
+		if(customer.no == "" || customer.no == undefined ||customer.firstName == null || customer.firstName == undefined || customer.lastName == null || customer.lastName == undefined || customer.designation == null || customer.designation == undefined){
+			return false;
+		}
+		return true;
+	}
+		
+
 		
 	$scope.getAllEmployees = function(){
 		debugger;
@@ -47,17 +56,20 @@ myModule.controller("indexController",function($scope,$http){
 		$http({
 			  method: 'POST',
 			  url: 'http://localhost:8080/customer',
-			  data : {'id' : customer.no,'name' : customer.name}
+			  data : {'id' : customer.no,'firstName' : customer.firstName, 'lastName' : customer.lastName, 'designation' : customer.designation }
 			}).then(function successCallback(response) {
 				$scope.showAlert = true;
 				if(response.data[0] == "success"){
 					$scope.addMessage = "Customer added successfully";
+					$scope.messageClassForAdd = "alert alert-success";
 				}else{
 					$scope.addMessage = "Some error occured while saving customer!";
+					$scope.messageClassForAdd = "alert alert-danger";
 				}
 			  }, function errorCallback(response) {
 				  $scope.showAlert = true;
 				  $scope.addMessage = "Some error occured while saving customer!";
+				  $scope.messageClassForAdd = "alert alert-danger";
 			 });
 	}
 	

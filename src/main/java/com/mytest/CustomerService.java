@@ -8,5 +8,4 @@ public interface CustomerService {
 	public String deleteCustomerById(int id);
 	public Customer getCustomerById(int id);
 	public String updateCustomerById(int id, Customer customer);
-	public Customer findByName(String name);
 }

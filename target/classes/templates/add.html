@@ -4,17 +4,25 @@
 			<!-- <div ng-show="showAlert">
 				<span ng-show="showAlert">{{addMessage}}</span>
 			</div> -->
-			<div ng-if="showAlert" class="alert alert-success alert-dismissable">
+			<div ng-if="showAlert" ng-class="messageClassForAdd">
   				<h4>{{addMessage}}</h4>
 			</div>
 		  <div class="form-group">
 		    <label for="SrNo">Sr.No:</label>
-		    <input type="number" class="form-control" ng-model="customer.no" />
+		    <input type="number" ng-required="true"  class="form-control" ng-model="customer.no" />
 		  </div>
 		  <div class="form-group">
-		    <label for="Name">Name:</label>
-		    <input type="text" class="form-control" ng-model="customer.name" />
+		    <label for="Name">First Name:</label>
+		    <input type="text" ng-required="true" class="form-control" ng-model="customer.firstName" />
 		  </div>
-		  <button type="submit" class="btn btn-primary" ng-click="addCustomer(customer)">Submit</button>
+		   <div class="form-group">
+		    <label for="Name">Last Name:</label>
+		    <input type="text" ng-required="true" class="form-control" ng-model="customer.lastName" />
+		  </div>
+		   <div class="form-group">
+		    <label for="Name">Designation:</label>
+		    <input type="text" ng-required="true" class="form-control" ng-model="customer.designation" />
+		  </div>
+		  <button type="submit"  class="btn btn-primary" ng-click="addCustomer(customer)">Submit</button>
 	</div>
 </div>
